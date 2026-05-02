@@ -1,13 +1,17 @@
 {
-	"name": "F# (.NET)",
-	"image": "mcr.microsoft.com/devcontainers/dotnet:9.0",
+	"name": "F# + Haskell (.NET)",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
 	"customizations": {
 		"vscode": {		
 			"extensions": [
 				"Ionide.Ionide-fsharp",
-				"ms-dotnettools.csharp"
+				"ms-dotnettools.csharp",
+				"haskell.haskell"
 			]
 		}
 	},
-	"postCreateCommand": "dotnet tool install --global fantomas"
+	"postCreateCommand": "dotnet tool update --global fantomas || dotnet tool install --global fantomas"
 }
